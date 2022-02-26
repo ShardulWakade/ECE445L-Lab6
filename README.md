@@ -1,5 +1,5 @@
-# EE445L-SP22-Lab-2
-Lab 2 template.
+# EE445L-SP22-Lab-6
+Lab 6 template.
 
 ## HW
 
