@@ -80,12 +80,12 @@ through that we want. Feel free to modify if necessary.
 2. Receive the part number for your assigned DAC and op-amp from your TA
 3. Find the datasheets for the DAC and op-amp
 
-// TODO: add datasheets in table
+> TODO: add datasheets in table
 
 4. Find the availability and prices for the DAC and op-amp
 5. Find the symbols and footprints for the DAC and op-amp
 
-// TODO: add table of symbols and footprints for the DAC and op-amp
+> TODO: add table of symbols and footprints for the DAC and op-amp
 
 6. Add the DAC and op-amp to the Lab 6 schematic
    1. You do not have to finish the schematic
@@ -96,6 +96,8 @@ through that we want. Feel free to modify if necessary.
 ## 3 Procedure
 
 *Note: every part in your system must be added to a BOM (bill of materials)*
+
+> TODO: discuss rewriting the BOM.xlsx
 
 ### 3.1 Select an Enclosure for the System
 
@@ -114,8 +116,8 @@ through that we want. Feel free to modify if necessary.
    
 ### 3.2 Complete the Schematic
 
-// TODO: decide between through hole resistors, capacitors, etc
-// if we go with SMD, they can look on JLC for the prices
+> TODO: decide between through hole resistors, capacitors, etc
+> if we go with SMD, they can look on JLC for the prices
 
 1. 
 
@@ -125,9 +127,34 @@ through that we want. Feel free to modify if necessary.
    1. You cannot use 
 
 
+### 3.4 Order Your PCB From JLCPCB
+
+1. 
+
+
+### 3.5 Complete the BOM
+
+1. Export your parts list from Eagle
+   1. Click `File`
+   2. Click `Export...`
+   3. Click `BOM`
+   4. Select csv as the file format
+   5. The delimiter for the BOM from Eagle is `;`
+   6. Convert the csv's delimiter to `,` with the [eagle_bom_to_csv.py](resources/bom/eagle_bom_to_csv.py) script
+      1. In windows, type `py eagle_bom_to_csv.py -h` to view the script's help function
+      2. In ubuntu, type `python3 eagle_bom_to_csv.py -h` to view the script's help function
+   7. Add a column for **price**
+   8. Add a column for **estimated current draw**
+   9. Fill out the **estimated current draw** column with values collected from your parts' datasheets
+   10. Calculate the total cost of the system
+   11. Calculate the estimated total current draw of the system
+   12. Calculate how long the system can operate using the estimated total current
+
 ---
 
 ## 4 Checkout
+
+
 
 ---
 
