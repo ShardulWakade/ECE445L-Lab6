@@ -76,6 +76,7 @@ through that we want. Feel free to modify if necessary.
 ---
 
 ## 2 Preparation
+
 1. Download the `EE445L.lbr` file to make sure you have the latest version (the GitHub should contain the latest version)
 2. Receive the part number for your assigned DAC and op-amp from your TA
 3. Find the datasheets for the DAC and op-amp
@@ -103,7 +104,7 @@ through that we want. Feel free to modify if necessary.
 
 1. Your PCB must fit within an enclosure
 2. A larger box will allow for a larger PCB and make layout simpler
-3. Select an enclosure from the following list (these enclosures can be in the ECE445L parts chest):
+3. Select an enclosure from the following list (these enclosures can be found in the ECE445L parts chest):
 
 | Enclosure     | Manufacturer                  | Datasheet                                                                             |
 |-----------    |-------------------------------|---------------------------------------------------------------------------------------|
@@ -111,44 +112,66 @@ through that we want. Feel free to modify if necessary.
 | PacTec XP     | PacTec                        | [PacTec XP datasheet](resources/enclosure_datasheets/pactec-XP_datasheet.pdf)         |
 | Serpac 151    | Serpac Electronic Enclosures  | [Serpac 151 datasheet](resources/enclosure_datasheets/serpac-151_datasheet.pdf)       |
 
-4. Add the enclosure to your BOM
-5. During checkout, you will have to verify that your PCB fits inside of the enclosure that you selected
+4. During checkout, you will have to verify that your PCB fits inside of the enclosure that you selected
    
 ### 3.2 Complete the Schematic
 
 > TODO: decide between through hole resistors, capacitors, etc
 > if we go with SMD, they can look on JLC for the prices
 
-1. 
+1. Add the DAC and op-amp to the schematic
 
 ### 3.3 Complete the PCB
 
-1. Route the parts on your PCB 
-   1. You cannot use 
+1. Resize the PCB area so that it corresponds to the enclosure that you selected
+2. Place the components within the PCB area
+   1. You cannot use auto-place functions
+   2. All components must be placed by hand
+   3. Intelligently placing your parts will make laying the traces much easier in the future
+   4. Place components to minimize trace lengths and cross-talk
+   5. Place components that connect to each other next to each other
+   6. If possible, place polarized parts in the same orientation
+3. Route the components on your PCB 
+   1. You cannot use auto-route functions
+   2. All traces must be routed by hand
+4. Execute a **Design Rules Check (DRC)** and fix any errors that exist
 
+### 3.4 Enter Your PCB into JLCPCB
 
-### 3.4 Order Your PCB From JLCPCB
-
-1. 
-
+1. Click the **CAM Processor** button in the top tool bar
+2. Select **Export as ZIP**
+3. Click the **Process Job** button
+4. Save the zip file
+5. Go to [jlcpcb.com](https://jlcpcb.com/)
+6. Click the **Add gerber file** button
+7. Select the zip file
+8. Click the **Instant Quote** button
+9. Take a screenshot of the screen for the report
+   1.  If the PCB is smaller than 10000 mm<sup>2</sup> the calculated price will be $2.00
+   2.  If the PCB is larger than 10000 mm<sup>2</sup> the calculated price will be greater than $2.00
 
 ### 3.5 Complete the BOM
 
 1. Export your parts list from Eagle
-   1. Click `File`
-   2. Click `Export...`
-   3. Click `BOM`
+   1. Click **File**
+   2. Click **Export...**
+   3. Click **BOM**
    4. Select csv as the file format
-   5. The delimiter for the BOM from Eagle is `;`
+   5. The delimiter for the csv file from Eagle is `;`
    6. Convert the csv's delimiter to `,` with the [eagle_bom_to_csv.py](resources/bom/eagle_bom_to_csv.py) script
       1. In windows, type `py eagle_bom_to_csv.py -h` to view the script's help function
       2. In ubuntu, type `python3 eagle_bom_to_csv.py -h` to view the script's help function
-   7. Add a column for **price**
-   8. Add a column for **estimated current draw**
-   9. Fill out the **estimated current draw** column with values collected from your parts' datasheets
-   10. Calculate the total cost of the system
-   11. Calculate the estimated total current draw of the system
-   12. Calculate how long the system can operate using the estimated total current
+   7. Add your enclosure to the BOM
+   8. Add a column for **price**
+   9. Add a column for **estimated current draw**
+   10. Fill out the **price** column with values collected from 
+
+> TODO: price column source
+
+   10. Fill out the **estimated current draw** column with values collected from your parts' datasheets
+   11. Calculate the total cost of the system
+   12. Calculate the estimated total current draw of the system
+   13. Calculate how long the system can operate using the estimated total current
 
 ---
 
