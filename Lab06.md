@@ -63,15 +63,57 @@ through that we want. Feel free to modify if necessary.
 
 ### 1.1 Goals
 
+1. PCB layout using Eagle
+2. Systems level approach to embedded system design
+   - Mechanical considerations
+   - Availability of parts (second source)
+   - Cost considerations
+   - Power considerations
+   - Design for test
+
 ### 1.2 Team Size
+
+This lab is done individualy.
+
+> One is the loneliest number.
 
 ### 1.3 Review
 
+1. Datasheets for the TM4C123GH6PM microcontroller (review layout for the 64 pin LQFP (low profile quad flat pack))
+2. [Eagle setup tutorial](https://www.shawnvictor.net/autodesk-eagle.html)
+3. [ECE319K spring break PCB camp](https://docs.google.com/document/d/1IH5vu2bckfjNhRgrgllNNQLeclb7rm3aPWbOFKYeGOE/edit?usp=sharing)
+4. Valvano Eagle tutorial videos:
+   1. [Importing Eagle library for new part](https://youtu.be/7MNkIBrr_UA)
+   2. [Editing the Eagle schematic](https://youtu.be/ZneKCLUWy_I)
+   3. [Changing PCB size to fit in box](https://youtu.be/yPVYe-lXOEI)
+   4. [Placing the parts on PCB](https://youtu.be/a9Aywr4wLSE)
+   5. [Routing power](https://youtu.be/BzV133ZuO5)
+   6. [Routing ground](https://youtu.be/23cDxOABxm8)
+   7. [Routing signals](https://youtu.be/nrS0r5j0Ke8)
+   8. [Finishing up and creating CAM Gerber files](https://youtu.be/lMueM00M8HU) 
+
 ### 1.4 Starter Files
 
-### 1.5 Required Hardware
+1. Lab_6.sch
+2. Lab_6.pcb
+3. EE445L.lbr
+4. lab6_parts.csv
 
-### 1.6 Background
+### 1.5 Background
+
+Considering the design cycle presented in Section 1.3 of the book, one starts by analyzing a problem, and then one generates a **requirements document** describing what the system must do. The output of the analysis phase is a list of specifications and constraints. The requirements document for Lab 6 is given in [`requirements_document.docx`](requirements_document.docx). The Preparation and Procedure sections of lab assignments address the design and implementation phases of the project. The lab assignment and your solution to it represents analysis and initial design, just part way through the design cycle in Figure 6.5. You will build no circuits and write no software.
+
+As you know, commercial products are not manufactured using solder-less breadboards like the ones we use in ECE319K and ECE445L. Furthermore, commercial products do not include microcontroller boards like the LaunchPad. Implementing the embedded system on a PCB, which includes both the microcontroller and the external circuitry, will improve maintainability, testability, and reliability. It will also reduce the size, weight and cost of the system.
+
+There are no specific requirements for this lab to minimize size, cost, or power, but you will be asked to estimate these parameters in your system. There are three considerations when designing a power efficient system. First, we need to make a **Power Budget**. This means we determine the maximum amount of power that can be supported by the power source. Second, we need to identify and analyze required **system tasks**. This means we determine the tasks that need to be performed by the system and estimate the power required to perform these tasks. It is important to consider timing of the tasks and synchronization to I/O events. For example, executing about once a second (e.g. smoke detector checking for fires) will require less power than executing exactly once a second (digital watch). One way the TI MSP430 family achieves very low power is it can run without a crystal oscillator, and the rate at which the microcontroller runs can be approximately set. For example, the 40-pin MSP430F2274 running at 1 MHz requires only 400 µA of supply current, whereas a Cortex M requires 10 to 100 times more current. The third consideration is to develop a **power strategy**. Having a strategy for power helps the power needed to perform the required system tasks to fit within the power budget. A Power Budget is a first order calculation that gives you a ballpark figure of the “total average current” supported by your power source. From the system specifications we are given how long the system must operate without replacing batteries, **tlife** (hours) (tlife is 24 hours in this lab). From the battery datasheet we determine the storage capacity of the battery, **E** (mAh). Be aware that for many batteries the storage capacity also depends on current, time, and temperature.
+
+For this lab, the power budget is: **average current ≤ E / tlife**
+- E = 2600mAh
+- tlife = 24h
+
+### 1.6 Requirements Document
+
+Read through the [requirements document](requirements_document.docx) to gain an understanding of your assignment.
 
 ---
 
@@ -79,17 +121,25 @@ through that we want. Feel free to modify if necessary.
 
 1. Download the `EE445L.lbr` file to make sure you have the latest version (the GitHub should contain the latest version)
 2. Receive the part number for your assigned DAC and op-amp from your TA
+
+   | Part               | Component Type  | Datasheet                                                                         |
+   |--------------------|-----------------|-----------------------------------------------------------------------------------|
+   | AD5061BRJZ-1500RL7 | DAC             | [AD5061 datasheet](resources/part_datasheets/ad5061.pdf)                          |
+   | AD5300BRMZ         | DAC             | [AD5300 datasheet](resources/part_datasheets/ad5300.pdf)                          |
+   | AD8300ARZ          | DAC             | [AD8300 datasheet](resources/part_datasheets/ad5300.pdf)                          |
+   | AD5541JRZ          | DAC             | [AD5541/AD5542 datasheet](resources/part_datasheets/ad5541_5542.pdf)              |
+   | AD8604WARZ         | op-amp          | [AD8601/AD8602/AD8604 datasheet](resources/part_datasheets/ad8601_8602_8604.pdf)  |
+   | AD8604ARQZ-R7      | op-amp          | [AD8601/AD8602/AD8604 datasheet](resources/part_datasheets/ad8601_8602_8604.pdf)  |
+   | AD822ARZ           | op-amp          | [AD822 datasheet](resources/part_datasheets/ad822.pdf)                            |
+   | AD823ARZ           | op-amp          | [AD823 datasheet](resources/part_datasheets/ad823.pdf)                            |
+   | AD8542ARZ          | op-amp          | [AD8541/AD8542/AD8544 datasheet](resources/part_datasheets/ad8541_8542_8544.pdf)  |
+
 3. Find the datasheets for the DAC and op-amp
-
-> TODO: add datasheets in table
-
 4. Find the availability and prices for the DAC and op-amp
 5. Find the symbols and footprints for the DAC and op-amp
-
-> TODO: add table of symbols and footprints for the DAC and op-amp
-
+   1. You can find symbols and footprints for parts from websites such as: [mouser](https://www.mouser.com/) and [snapeda](https://www.snapeda.com/)
 6. Add the DAC and op-amp to the Lab 6 schematic
-   1. You do not have to finish the schematic
+   1. You do not have to finish the schematic for preparation
    2. You do not have to add additional functionality beyond what is in the requirements document
 
 ---
@@ -98,19 +148,17 @@ through that we want. Feel free to modify if necessary.
 
 *Note: every part in your system must be added to a BOM (bill of materials)*
 
-> TODO: discuss rewriting the BOM.xlsx
-
 ### 3.1 Select an Enclosure for the System
 
 1. Your PCB must fit within an enclosure
 2. A larger box will allow for a larger PCB and make layout simpler
 3. Select an enclosure from the following list (these enclosures can be found in the ECE445L parts chest):
 
-| Enclosure     | Manufacturer                  | Datasheet                                                                             |
-|-----------    |-------------------------------|---------------------------------------------------------------------------------------|
-| Hammond 1593Y | Hammond Manufacturing         | [Hammond 1593Y datasheet](resources/enclosure_datasheets/hammond-1593Y_datasheet.pdf) |
-| PacTec XP     | PacTec                        | [PacTec XP datasheet](resources/enclosure_datasheets/pactec-XP_datasheet.pdf)         |
-| Serpac 151    | Serpac Electronic Enclosures  | [Serpac 151 datasheet](resources/enclosure_datasheets/serpac-151_datasheet.pdf)       |
+   | Enclosure     | Manufacturer                  | Datasheet                                                                   |
+   |---------------|-------------------------------|-----------------------------------------------------------------------------|
+   | Hammond 1593Y | Hammond Manufacturing         | [Hammond 1593Y datasheet](resources/enclosure_datasheets/hammond-1593Y.pdf) |
+   | PacTec XP     | PacTec                        | [PacTec XP datasheet](resources/enclosure_datasheets/pactec-XP.pdf)         |
+   | Serpac 151    | Serpac Electronic Enclosures  | [Serpac 151 datasheet](resources/enclosure_datasheets/serpac-151.pdf)       |
 
 4. During checkout, you will have to verify that your PCB fits inside of the enclosure that you selected
    
@@ -128,7 +176,7 @@ through that we want. Feel free to modify if necessary.
    1. You cannot use auto-place functions
    2. All components must be placed by hand
    3. Intelligently placing your parts will make laying the traces much easier in the future
-   4. Place components to minimize trace lengths and cross-talk
+   4. Place components in a way to minimize trace lengths and cross-talk
    5. Place components that connect to each other next to each other
    6. If possible, place polarized parts in the same orientation
 3. Route the components on your PCB 
@@ -157,21 +205,24 @@ through that we want. Feel free to modify if necessary.
    2. Click **Export...**
    3. Click **BOM**
    4. Select csv as the file format
-   5. The delimiter for the csv file from Eagle is `;`
+   5. The delimiter for the csv file from Eagle is `;` (which makes no sense because csv stands for: *comma-separated values*)
    6. Convert the csv's delimiter to `,` with the [eagle_bom_to_csv.py](resources/bom/eagle_bom_to_csv.py) script
       1. In windows, type `py eagle_bom_to_csv.py -h` to view the script's help function
       2. In ubuntu, type `python3 eagle_bom_to_csv.py -h` to view the script's help function
-   7. Add your enclosure to the BOM
-   8. Add a column for **price**
-   9. Add a column for **estimated current draw**
-   10. Fill out the **price** column with values collected from 
-
-> TODO: price column source
-
-   10. Fill out the **estimated current draw** column with values collected from your parts' datasheets
-   11. Calculate the total cost of the system
-   12. Calculate the estimated total current draw of the system
-   13. Calculate how long the system can operate using the estimated total current
+      3. If you have another way you'd prefer to convert your csv's delimiter, feel free to do that
+2. Add your enclosure to the BOM
+3. Add any additional parts to your BOM that your system will contain (batteries, etc)
+4. Add a column for **price**
+5. Add a column for **estimated current draw**
+6. Fill out the **price** column with values found from:
+   1. [lab6_parts.csv](resources/bom/lab6_parts.csv)
+   2. [digikey](https://digikey.com/)
+   3. [mouser](https://mouser.com/)
+   4. [octopart](https://octopart.com/)
+7. Fill out the **estimated current draw** column with values collected from your parts' datasheets
+8. Calculate the total cost of the system
+9. Calculate the estimated total current draw of the system
+10. Calculate how long the system can operate using the estimated total current
 
 ---
 
