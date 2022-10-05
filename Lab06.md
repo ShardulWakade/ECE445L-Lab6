@@ -146,7 +146,7 @@ Read through the [requirements document](requirements_document.docx) to gain an 
 
 ## 3 Procedure
 
-*Note: every part in your system must be added to a BOM (bill of materials)*
+*Note: every part in your system must be added to a BOM (bill of materials), so keep a note of each component's cost*
 
 ### 3.1 Select an Enclosure for the System
 
@@ -160,14 +160,24 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    | PacTec XP     | PacTec                        | [PacTec XP datasheet](resources/enclosure_datasheets/pactec-XP.pdf)         |
    | Serpac 151    | Serpac Electronic Enclosures  | [Serpac 151 datasheet](resources/enclosure_datasheets/serpac-151.pdf)       |
 
-4. During checkout, you will have to verify that your PCB fits inside of the enclosure that you selected
+4. Note the space you have within the enclosure for the PCB and sizes of the drill holes that you will need to place on your PCB later
+5. During checkout, you will have to verify that your PCB fits inside of the enclosure that you selected
    
 ### 3.2 Complete the Schematic
 
-> TODO: decide between through hole resistors, capacitors, etc
-> if we go with SMD, they can look on JLC for the prices
+> TODO: download the updated PCB
+
+> TODO: finish schematic section
 
 1. Add the DAC and op-amp to the schematic
+2. Add components to test the system
+   1. The JTAG port allows your to download and run software on the microcontroller
+   2. Add test points for analog signals
+   3. Add a 16-pin logic-analyzer breakout (8x2 pin header), and connect 8 pins to different digital signals and 8 pins to GND
+3. Route nets so that all components are connected correctly
+4. Name every net within the network
+   1. There should be **zero** nets with names like **N$0**
+   2. To view all nets:
 
 ### 3.3 Complete the PCB
 
@@ -179,12 +189,17 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    4. Place components in a way to minimize trace lengths and cross-talk
    5. Place components that connect to each other next to each other
    6. If possible, place polarized parts in the same orientation
-3. Route the components on your PCB 
+3. Route the components on your PCB
    1. You cannot use auto-route functions
    2. All traces must be routed by hand
+   3. Select traces with widths suiting the current that will run through them
+      1. [PCB trace width calculator](http://www.circuitcalculator.com/wordpress/2006/01/31/pcb-trace-width-calculator/) (IPC-2221 standard)
+      2. The copper on your board will be 1oz
+   4. Select vias with sizes suiting the current that will run through them
+      1. [PCB via calculator](http://circuitcalculator.com/wordpress/2006/03/12/pcb-via-calculator/)
 4. Execute a **Design Rules Check (DRC)** and fix any errors that exist
 
-### 3.4 Enter Your PCB into JLCPCB
+### 3.4 Upload Your PCB to JLCPCB
 
 1. Click the **CAM Processor** button in the top tool bar
 2. Select **Export as ZIP**
@@ -210,16 +225,28 @@ Read through the [requirements document](requirements_document.docx) to gain an 
       1. In windows, type `py eagle_bom_to_csv.py -h` to view the script's help function
       2. In ubuntu, type `python3 eagle_bom_to_csv.py -h` to view the script's help function
       3. If you have another way you'd prefer to convert your csv's delimiter, feel free to do that
+   7. This BOM should contain all the parts within your schematic
 2. Add your enclosure to the BOM
 3. Add any additional parts to your BOM that your system will contain (batteries, etc)
 4. Add a column for **price**
-5. Add a column for **estimated current draw**
+5. Add a column for **estimated current**
 6. Fill out the **price** column with values found from:
    1. [lab6_parts.csv](resources/bom/lab6_parts.csv)
    2. [digikey](https://digikey.com/)
    3. [mouser](https://mouser.com/)
    4. [octopart](https://octopart.com/)
-7. Fill out the **estimated current draw** column with values collected from your parts' datasheets
+   5. It doesn't matter whether the prices you choose for the DAC and op-amp are the quantity 1 prices or the quantity 1000 prices
+7. Fill out the **estimated current** column
+   1. You only need to note the current of the TM4C123, DAC, op-amp, LM4041, and LEDs
+   2. Find the current drawn by the TM4C123 from the [TM4C123 datasheet]()
+   3. Find the current drawn by the DAC from its datasheet
+   4. Find the current drawn by the op-amp from its datasheet
+   5. Calculate the current drawn by the LM4041 with this equation: I = (3.3 - V<sub>REF</sub>) / R<sub>S</sub>
+      1. V<sub>REF</sub> = reference voltage
+      2. R<sub>S</sub> = impedance of the resistor between the LM4041 and 3.3V
+   6. Calculate the voltage of the LEDs with this equation: I = (3.3 - V<sub>D</sub>) / R
+      1. V<sub>D</sub> = diode voltage
+      2. R = impedance of the resistor in series
 8. Calculate the total cost of the system
 9. Calculate the estimated total current draw of the system
 10. Calculate how long the system can operate using the estimated total current
@@ -228,7 +255,7 @@ Read through the [requirements document](requirements_document.docx) to gain an 
 
 ## 4 Checkout
 
-
+You will execute an ERC and DRC to verify that your project is complete.
 
 ---
 
@@ -236,5 +263,17 @@ Read through the [requirements document](requirements_document.docx) to gain an 
 
 ### 5.1 Deliverables
 
+1. Objectives (requirements document)
+2. Hardware design
+   1. Final `.sch` file
+   2. Final `.brd` file
+   3. Screenshot of the JLC order screen
+3. Software design
+4. Measurement data
+   1. Bill of Materials
+   2. Total cost of the system
+   3. Total estimated current
+
 ### 5.2 Analysis and Discussion Questions
 
+1. Estimate how long the system would run on the 2600mAh battery
