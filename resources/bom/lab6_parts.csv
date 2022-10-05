@@ -1,0 +1,101 @@
+Type,Description,Manufacturer ,Mfg. P/N,Distributor,P/N,Unit cost
+BAT,Li-ion  Cylindrical 3.7V 2600mAh Battery,Tenergy,18650,,,$8.00
+ASM,"Black case, 5.5 x 2.6 x 1.1 in ",Hammond,1593YALBK,Mouser ,546-1593YALBK,$8.50
+ASM,Black Case 5.5 by 3.6 by 1.1in,PacTec,81491-510-000,Mouser ,616-81491-000,$7.68
+CAP,"Ceramic, X7R, 20%, 1 uF",Kemet,C333C105K5R5TA7301 ,Mouser ,80-C333C105K5R-TR,$0.47
+CAP,"Ceramic, Z5U, -20/+80%, 0.47 uF",Kemet,C320C474M5U5TA,Digikey,399-4309-ND,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 0.1 uF",,,Digikey,399-4151-ND,$0.05
+CAP,"Ceramic, Z5U, -20/+80%, 0.033 uF",,,Digikey,399-4298-ND,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 0.027uF",,,,,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 0.01 uF",,,Digikey,399-4148-ND ,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 4.7 nF",,,Digikey,399-4188-ND,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 2.2 nF",,,,,$0.40
+CAP,"Ceramic, Z5U, -20/+80%, 1 nF",,,,,$0.40
+CAP,"Ceramic Z5U, -20/+80%, 470 pF",,,,,$0.03
+CAP,"Ceramic Z5U, -20/+80%, 330 pF",,,,,$0.03
+CAP,"Ceramic Z5U, -20/+80%, 220 pF",,,,,$0.03
+CAP,"Ceramic Z5U, -20/+80%, 100 pF",,,,,$0.03
+CAP,"Ceramic Z5U, -20/+80%, 22 pF",,,,,$0.03
+CAP,"Ceramic C0G, 10%, 10 pF",Murata 50V 5% ,RDE5C1H100J0P1H03B ,Digikey,490-8629-ND,$0.31
+CAP-Tant,"Tantalum, 16V, 20% 2.2 uF",AVX Corporation,TAP225M016CCS,Digikey,478-8819-ND,$0.29
+CAP-Tant,"Tantalum, 16V, 10% 4.7 uF",,,Digikey,478-1904-ND,$0.22
+CAP-Tant,"Tantalum, 20V, 10%, 1 uF",,,Digikey,478-1833-ND,$0.32
+CAP-Tant,"Tantalum, 10uF 20V 10%",,,Digikey,478-1840-ND,$0.56
+CAP-Elec,"Electrolytic, 16V, 100 uF, cap 20%, ESR=20mV",,,Mouser ,661-APSF160E101MF05S,$0.38
+CON,2 to 40 pin 0.1 in header (price per pin),,,,,$0.02
+CON,2-pin header,,,,,$0.10
+CON,2-pin jumper,,,,,$0.27
+CON,2-pin jumper,,,,,$0.10
+CON,"Test point, black",Keystone Electronics,5001,Digikey,36-5001K-ND,$0.23
+CON,"Test point, orange",Keystone Electronics,5003,Digikey,36-5003K-ND,$0.23
+CON,"Test point, yellow",Keystone Electronics,5004,Digikey,36-5004K-ND,$0.23
+CON,"Test point, white",Keystone Electronics,5002,Digikey,36-5002K-ND,$0.23
+CON,"Test point, blue",Keystone Electronics,5117,Digikey,36-5117-ND,$0.23
+CON,"Test point, green",Keystone Electronics,5116,Digikey,36-5116-ND,$0.23
+CON,"Test point, red",Keystone Electronics,5000,Digikey,36-5000K-ND,$0.23
+CON,Logic Analyzer connector,FCI,68021-208HLF,Digikey,609-3344-ND,$0.27
+CPU,TM4C123GH6PM 64-pin LQFP,TI,TM4C123GH6PMI,Mouser ,595-TM4C123GH6PMI,$15.67
+CRYS, NX5032GA-16.000000,NDK, NX5032GA-16.000000,Digikey,644-1037-1-ND,$0.51
+IC,"LP2950 3.3V regulator, 100 mA TO-92",TI,LP2950-33LPRE3,Digikey,296-31455-1-ND,$0.19
+IC,LM4041CILPR shunt diode reference,TI,LM4041CILPR ,Mouser ,595-LM4041CILPR,$1.21
+LED,Green 2mA 5mm diffused,Avago Technologies,HLMP-4740,Digikey,516-1327-ND,$0.29
+LED,Red 1.6V 1mA 5mm diffused,Avago Technologies,HLMP-D150,Digikey,516-1323-ND,$0.29
+LED,Yellow 2mA 5mm diffused,Avago Technologies,HLMP-4719,Digikey,516-1326-ND,$0.29
+POT,20K LINEAR SLIDE POT,Bourns,PTA2043-2015CPB103,Mouser ,652-PTA20432015CPB10,$1.28
+RES,"Carbon 1/6W, 5%, 100",Yageo,CFR-12JB-100R,Digikey,100EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 220",Yageo,CFR-12JB-220R,Digikey,220EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 270",Yageo,CFR-12JB-270R,Digikey,270EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 330",Yageo,CFR-12JB-330R,Digikey,330EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 470",Yageo,CFR-12JB-470R,Digikey,470EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 510",Yageo,CFR-12JB-510R,Digikey,510EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 680",Yageo,CFR-12JB-680R,Digikey,680EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 820",Yageo,CFR-12JB-820R,Digikey,820EBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 1K",Yageo,CFR-12JB-1K0,Digikey,1.0KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 1.2K",Yageo,CFR-12JB-1K2,Digikey,1.2KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 1.5K",Yageo,CFR-12JB-1K5,Digikey,1.5KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 1.8K",Yageo,CFR-12JB-1K8,Digikey,1.8KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 2.0K",Yageo,CFR-12JB-2K0,Digikey,2.0KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 2.2K",Yageo,CFR-12JB-2K2,Digikey,2.2KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 2.7K",Yageo,CFR-12JB-2K7,Digikey,2.7KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 3.3K",Yageo,CFR-12JB-3K3,Digikey,3.3KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 3.9K",Yageo,CFR-12JB-3K9,Digikey,3.9KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 4.7K",Yageo,CFR-12JB-4K7,Digikey,4.7KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 5.1K",Yageo,CFR-12JB-5K1,Digikey,5.1KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 5.6K",Yageo,CFR-12JB-5K6,Digikey,5.6KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 6.8K",Yageo,CFR-12JB-6K8,Digikey,6.8KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 8.2K",Yageo,CFR-12JB-8K2,Digikey,8.2KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 10K",Yageo,CFR-12JB-10K,Digikey,10KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 12K",Yageo,CFR-12JB-12K,Digikey,12KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 15K",Yageo,CFR-12JB-15K,Digikey,15KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 18K",Yageo,CFR-12JB-18K,Digikey,18KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 20K",Yageo,CFR-12JB-20K,Digikey,20KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 22K",Yageo,CFR-12JB-22K,Digikey,22KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 27K",Yageo,CFR-12JB-27K,Digikey,27KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 36K",Yageo,CFR-12JB-36K,Digikey,36KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 33K",Yageo,CFR-12JB-33K,Digikey,33KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 39K",Yageo,CFR-12JB-39K,Digikey,39KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 47K",Yageo,CFR-12JB-47K,Digikey,47KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 51K",Yageo,CFR-12JB-51K,Digikey,51KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 56K",Yageo,CFR-12JB-56K,Digikey,56KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 68K",Yageo,CFR-12JB-68K,Digikey,68KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 82K",Yageo,CFR-12JB-82K,Digikey,82KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 100K",Yageo,CFR-12JB-100K,Digikey,100KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 120K",Yageo,CFR-12JB-120K,Digikey,120KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 150K",Yageo,CFR-12JB-150K,Digikey,150KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 180K",Yageo,CFR-12JB-180K,Digikey,180KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 200K",Yageo,CFR-12JB-200K,Digikey,200KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 220K",Yageo,CFR-12JB-220K,Digikey,220KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 240K",Yageo,CFR-12JB-240K,Digikey,240KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 270K",Yageo,CFR-12JB-270K,Digikey,270KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 330K",Yageo,CFR-12JB-330K,Digikey,330KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 390K",Yageo,CFR-12JB-390K,Digikey,390KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 470K",Yageo,CFR-12JB-470K,Digikey,470KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 510K",Yageo,CFR-12JB-510K,Digikey,510KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 560K",Yageo,CFR-12JB-560K,Digikey,560KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 680K",Yageo,CFR-12JB-680K,Digikey,680KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 820K",Yageo,CFR-12JB-820K,Digikey,820KEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 1M",Yageo,CFR-12JB-1M0,Digikey,1.0MEBK-ND,$0.02
+RES,"Carbon 1/6W, 5%, 10M",Yageo,CFR-12JB-10M,Digikey,10MEBK-ND,$0.02
+SW,"Tactile Switch, surface mount",C&K Components,KSC353JLFG,Mouser ,611-KSC353JLFG,$0.86
+SW,B3F tactile push button switch ,Omron Electronics,B3F-1052,Digikey,SW405-ND,$0.38
+SW,On/off power switch,,,,,$2.00

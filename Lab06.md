@@ -116,18 +116,21 @@ This lab is done individualy.
    6. [Routing ground](https://youtu.be/23cDxOABxm8)
    7. [Routing signals](https://youtu.be/nrS0r5j0Ke8)
    8. [Finishing up and creating CAM Gerber files](https://youtu.be/lMueM00M8HU)
-5. [Jared's Eagle Tips and Tricks]()
+5. [Jared's Eagle Tips](resources/tips/eagle_tips.pdf)
+6. [Jared's PCB Printing Tips](resources/tips/pcb_printing_tips.pdf)
 
 ### 1.4 Starter Files
 
-1. Lab_6.sch
-2. Lab_6.pcb
-3. EE445L.lbr
-4. lab6_parts.csv
+1. `Lab_6.sch`
+2. `Lab_6.pcb`
+3. `EE445L.lbr`
+4. `lab6_parts.csv`
 
 ### 1.5 Background
 
 Considering the design cycle presented in Section 1.3 of the book, one starts by analyzing a problem, and then one generates a **requirements document** describing what the system must do. The output of the analysis phase is a list of specifications and constraints. The requirements document for Lab 6 is given in [`requirements_document.docx`](requirements_document.docx). The Preparation and Procedure sections of lab assignments address the design and implementation phases of the project. The lab assignment and your solution to it represents analysis and initial design, just part way through the design cycle in Figure 6.5. You will build no circuits and write no software.
+
+![Figure 6.5](resources/images/figure_6.5.jpg)
 
 As you know, commercial products are not manufactured using solder-less breadboards like the ones we use in ECE319K and ECE445L. Furthermore, commercial products do not include microcontroller boards like the LaunchPad. Implementing the embedded system on a PCB, which includes both the microcontroller and the external circuitry, will improve maintainability, testability, and reliability. It will also reduce the size, weight and cost of the system.
 
@@ -145,25 +148,20 @@ Read through the [requirements document](requirements_document.docx) to gain an 
 
 ## 2 Preparation
 
-1. Download the `EE445L.lbr` file to make sure you have the latest version (the GitHub should contain the latest version)
+1. Download the `EE445L.lbr` file to make sure you have the latest version (this repository should contain the latest version)
 2. Receive the part number for your assigned DAC and op-amp from your TA
 
-   | Part               | Component Type  | Datasheet                                                                         |
-   |--------------------|-----------------|-----------------------------------------------------------------------------------|
-   | AD5061BRJZ-1500RL7 | DAC             | [AD5061 datasheet](resources/part_datasheets/ad5061.pdf)                          |
-   | AD5300BRMZ         | DAC             | [AD5300 datasheet](resources/part_datasheets/ad5300.pdf)                          |
-   | AD8300ARZ          | DAC             | [AD8300 datasheet](resources/part_datasheets/ad5300.pdf)                          |
-   | AD5541JRZ          | DAC             | [AD5541/AD5542 datasheet](resources/part_datasheets/ad5541_5542.pdf)              |
-   | AD8604WARZ         | op-amp          | [AD8601/AD8602/AD8604 datasheet](resources/part_datasheets/ad8601_8602_8604.pdf)  |
-   | AD8604ARQZ-R7      | op-amp          | [AD8601/AD8602/AD8604 datasheet](resources/part_datasheets/ad8601_8602_8604.pdf)  |
-   | AD822ARZ           | op-amp          | [AD822 datasheet](resources/part_datasheets/ad822.pdf)                            |
-   | AD823ARZ           | op-amp          | [AD823 datasheet](resources/part_datasheets/ad823.pdf)                            |
-   | AD8542ARZ          | op-amp          | [AD8541/AD8542/AD8544 datasheet](resources/part_datasheets/ad8541_8542_8544.pdf)  |
-   | RC4558D            | op-amp          | [RC4558 datasheet]() |
-   | RC4558DR           | op-amp          | [RC4558 datasheet]() |
-   | RC4558ID           | op-amp          | [RC4558 datasheet]() |
-   | RC4558IP           | op-amp          | [RC4558 datasheet]() |
-   | RC4558IPW          | op-amp          | [RC4558 datasheet]() |
+   | Part               | Component Type  | Datasheet                                                                |
+   |--------------------|-----------------|--------------------------------------------------------------------------|
+   | AD5061BRJZ-1500RL7 | DAC             | [AD5061 datasheet](resources/part_datasheets/ad5061.pdf)                 |
+   | AD5300BRMZ         | DAC             | [AD5300 datasheet](resources/part_datasheets/ad5300.pdf)                 |
+   | AD8300ARZ          | DAC             | [AD8300 datasheet](resources/part_datasheets/ad5300.pdf)                 |
+   | AD5541JRZ          | DAC             | [AD5541/AD5542 datasheet](resources/part_datasheets/ad5541_5542.pdf)     |
+   | RC4558D            | op-amp          | [RC4558 datasheet](resources/part_datasheets/rc4558.pdf)   |
+   | RC4558DR           | op-amp          | [RC4558 datasheet](resources/part_datasheets/rc4558.pdf)   |
+   | RC4558ID           | op-amp          | [RC4558 datasheet](resources/part_datasheets/rc4558.pdf)   |
+   | RC4558IP           | op-amp          | [RC4558 datasheet](resources/part_datasheets/rc4558.pdf)   |
+   | RC4558IPW          | op-amp          | [RC4558 datasheet](resources/part_datasheets/rc4558.pdf)   |
 
 3. Find the datasheets for the DAC and op-amp
 4. Find the availability and prices for the DAC and op-amp
