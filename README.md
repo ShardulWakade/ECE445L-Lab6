@@ -121,10 +121,10 @@ This lab is done individualy.
 
 ### 1.4 Starter Files
 
-1. `Lab_6.sch`
-2. `Lab_6.pcb`
-3. `EE445L.lbr`
-4. `lab6_parts.csv`
+1. [`Lab_6.sch`](hw/Lab_6.sch)
+2. [`Lab_6.brd`](hw/Lab_6.brd)
+4. [`EE445L.lbr`](resources/hw/EE445L.lbr)
+5. [`lab6_parts.csv`](resources/bom/lab6_parts.csv)
 
 ### 1.5 Background
 
@@ -350,7 +350,7 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    1. Final `.sch` file
    2. Final `.brd` file
    3. Screenshot of the JLC order screen
-3. Software design
+3. Software design (none)
 4. Measurement data
    1. Bill of Materials
    2. Total cost of the system
