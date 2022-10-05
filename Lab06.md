@@ -1,8 +1,33 @@
 # Lab 6 Introduction to PCB Design
 
 ## Table of Contents
+
 - [Lab 6 Introduction to PCB Design](#lab-6-introduction-to-pcb-design)
   - [Table of Contents](#table-of-contents)
+  - [0 Repository Structure](#0-repository-structure)
+    - [0.1 HW](#01-hw)
+    - [0.2 SW](#02-sw)
+    - [0.3 Resources](#03-resources)
+    - [0.4 Git and Github](#04-git-and-github)
+  - [1 Summary](#1-summary)
+    - [1.1 Goals](#11-goals)
+    - [1.2 Team Size](#12-team-size)
+    - [1.3 Review](#13-review)
+    - [1.4 Starter Files](#14-starter-files)
+    - [1.5 Background](#15-background)
+    - [1.6 Requirements Document](#16-requirements-document)
+  - [2 Preparation](#2-preparation)
+  - [3 Procedure](#3-procedure)
+    - [3.1 Select an Enclosure for the System](#31-select-an-enclosure-for-the-system)
+    - [3.2 Complete the Schematic](#32-complete-the-schematic)
+    - [3.3 Complete the PCB](#33-complete-the-pcb)
+    - [3.4 Assemble Your Cardboard PCB](#34-assemble-your-cardboard-pcb)
+    - [3.5 Upload Your PCB to JLCPCB](#35-upload-your-pcb-to-jlcpcb)
+    - [3.6 Complete the BOM](#36-complete-the-bom)
+  - [4 Checkout](#4-checkout)
+  - [5 Report](#5-report)
+    - [5.1 Deliverables](#51-deliverables)
+    - [5.2 Analysis and Discussion Questions](#52-analysis-and-discussion-questions)
 
 ---
 
@@ -90,7 +115,8 @@ This lab is done individualy.
    5. [Routing power](https://youtu.be/BzV133ZuO5)
    6. [Routing ground](https://youtu.be/23cDxOABxm8)
    7. [Routing signals](https://youtu.be/nrS0r5j0Ke8)
-   8. [Finishing up and creating CAM Gerber files](https://youtu.be/lMueM00M8HU) 
+   8. [Finishing up and creating CAM Gerber files](https://youtu.be/lMueM00M8HU)
+5. [Jared's Eagle Tips and Tricks]()
 
 ### 1.4 Starter Files
 
@@ -133,6 +159,11 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    | AD822ARZ           | op-amp          | [AD822 datasheet](resources/part_datasheets/ad822.pdf)                            |
    | AD823ARZ           | op-amp          | [AD823 datasheet](resources/part_datasheets/ad823.pdf)                            |
    | AD8542ARZ          | op-amp          | [AD8541/AD8542/AD8544 datasheet](resources/part_datasheets/ad8541_8542_8544.pdf)  |
+   | RC4558D            | op-amp          | [RC4558 datasheet]() |
+   | RC4558DR           | op-amp          | [RC4558 datasheet]() |
+   | RC4558ID           | op-amp          | [RC4558 datasheet]() |
+   | RC4558IP           | op-amp          | [RC4558 datasheet]() |
+   | RC4558IPW          | op-amp          | [RC4558 datasheet]() |
 
 3. Find the datasheets for the DAC and op-amp
 4. Find the availability and prices for the DAC and op-amp
@@ -165,41 +196,93 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    
 ### 3.2 Complete the Schematic
 
-> TODO: download the updated PCB
-
-> TODO: finish schematic section
+*Note: When you are working on the schematic and/or the PCB, **KEEP BOTH EDITORS OPEN TO PREVENT DESYNC***
 
 1. Add the DAC and op-amp to the schematic
-2. Add components to test the system
+2. Add the required components to complete the system
+   1. It is okay to use through hole components for everything except the TM4C
+   2. All IC should have a bypass capacitor
+3. Add components to test the system
    1. The JTAG port allows your to download and run software on the microcontroller
    2. Add test points for analog signals
    3. Add a 16-pin logic-analyzer breakout (8x2 pin header), and connect 8 pins to different digital signals and 8 pins to GND
-3. Route nets so that all components are connected correctly
-4. Name every net within the network
+4. Route nets so that all components are connected correctly
+5. Name every net within the schematic
    1. There should be **zero** nets with names like **N$0**
    2. To view all nets:
+      1. View the **Design Manager**
+      2. Select **Nets** from the **View** dropdown menu
+      3. Select **Select all** within the **New Classes/Busses** section
+      4. All nets within the schematic should appear in the **Nets** section
+6. Execute an **Electrical Rule Check (ERC)** and fix any errors that exist
+   1. Resistor and capacitors **MUST** have values
+   2. Some errors can be allowed:
+      1. Pin headers that have no value (they should still have names)
+      2. Buttons that have no value (they should still have names)
+      3. Others errors of a similar nature
 
 ### 3.3 Complete the PCB
 
-1. Resize the PCB area so that it corresponds to the enclosure that you selected
-2. Place the components within the PCB area
-   1. You cannot use auto-place functions
+*Note: When you are working on the schematic and/or the PCB, **KEEP BOTH EDITORS OPEN TO PREVENT DESYNC***
+
+1. Click the **SCH/BRD** button to switch to the PCB
+2. Edit the grid size to ensure all your components are placed in exact locations
+   1. Set the grid size by typing `grid <number> <unit>` into the command line above the board
+   2. Set the grid visibility by clicking the grid icon in the top left corner of the 
+3. Resize the PCB area so that it corresponds to the enclosure that you selected
+4. Place the components within the PCB area
+   1. You cannot use auto-place functions (Eagle doesn't have any to begin with)
    2. All components must be placed by hand
    3. Intelligently placing your parts will make laying the traces much easier in the future
-   4. Place components in a way to minimize trace lengths and cross-talk
-   5. Place components that connect to each other next to each other
-   6. If possible, place polarized parts in the same orientation
-3. Route the components on your PCB
-   1. You cannot use auto-route functions
-   2. All traces must be routed by hand
-   3. Select traces with widths suiting the current that will run through them
-      1. [PCB trace width calculator](http://www.circuitcalculator.com/wordpress/2006/01/31/pcb-trace-width-calculator/) (IPC-2221 standard)
-      2. The copper on your board will be 1oz
-   4. Select vias with sizes suiting the current that will run through them
-      1. [PCB via calculator](http://circuitcalculator.com/wordpress/2006/03/12/pcb-via-calculator/)
-4. Execute a **Design Rules Check (DRC)** and fix any errors that exist
+   4. Place all bypass capacitors as close to their respective ICs as possible
+   5. Place all through hole components on the top side (SMD components can go on either side)
+   6. Place components in a way to minimize trace lengths and cross-talk
+   7. Place components that connect to each other next to each other
+   8. Place polarized parts in the same orientation if possible
+5. Route the components on your PCB
+   1. [JLCPCB PCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities)
+      1. View minimum clearance, minimum trace width and spacing, etc.
+      2. Edit your **DRC** accordingly
+   2. You cannot use auto-route functions
+   3. All traces must be routed by hand
+   4. Avoid loops because loops can pickup EM field noise
+   5. Avoid 90 degree turns (convert them into two 45 degree turns)
+   6. For beginners, it's easier to route your PCB if you keep all vertical traces on one side and all horizontal traces on the other side
+   7. Do not use a ground pour for this PCB
+      1. Place ground and power paths in the shape of a capital E
+   8. Select traces with suitable widths
+      1. [IPC-2221 PCB trace width calculator](http://www.circuitcalculator.com/wordpress/2006/01/31/pcb-trace-width-calculator/)
+      2. [IPC-2152 PCB trace width calculator](https://twcalculator.app.protoexpress.com/)
+      3. [Article on IPC-2152](https://resources.altium.com/p/using-ipc-2152-calculator-designing-standards)
+      4. The copper on your board will have a thickness of 1oz
+      5. Most of the signal traces in the class can be 7 to 10 mils
+      6. Use 20 to 30 mil width traces for power, ground, and signals carrying large currents
+   9. Select vias with suitable sizes
+      1. [IPC-2221 PCB via calculator](http://circuitcalculator.com/wordpress/2006/03/12/pcb-via-calculator/)
+6. Add silk screens that include:
+   1. Your name (top silk)
+   2. Your TAs initials (top silk)
+   3. Date (top silk)
+   4. Purpose of the board (top silk)
+   5. All components must have visible labels (whichever side the component is on)
+   6. Information to assist in construction and debugging (top silk)
+7. Execute a **Design Rule Check (DRC)** and fix any errors that exist
 
-### 3.4 Upload Your PCB to JLCPCB
+### 3.4 Assemble Your Cardboard PCB
+
+1. Click the **Layer Settings** button
+2. Change the settings of the layers so the only visible layers are the **top** layers
+3. Click the **Print** button
+4. Set the scale to 1
+5. Print or save the PDF
+6. Click the **Layer Settings** button
+7. Change the settings of the layers so the only visible layers are the **bottom** layers
+8. Click the **Print** button
+9. Set the scale to 1
+10. Print or save the PDF
+11. Cut out the boards and glue them to a piece of cardboard
+
+### 3.5 Upload Your PCB to JLCPCB
 
 1. Click the **CAM Processor** button in the top tool bar
 2. Select **Export as ZIP**
@@ -213,30 +296,30 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    1.  If the PCB is smaller than 10000 mm<sup>2</sup> the calculated price will be $2.00
    2.  If the PCB is larger than 10000 mm<sup>2</sup> the calculated price will be greater than $2.00
 
-### 3.5 Complete the BOM
+### 3.6 Complete the BOM
 
 1. Export your parts list from Eagle
-   1. Click **File**
-   2. Click **Export...**
-   3. Click **BOM**
-   4. Select csv as the file format
-   5. The delimiter for the csv file from Eagle is `;` (which makes no sense because csv stands for: *comma-separated values*)
-   6. Convert the csv's delimiter to `,` with the [eagle_bom_to_csv.py](resources/bom/eagle_bom_to_csv.py) script
+   1. Open your project
+   2. Click **File**
+   3. Click **Export...**
+   4. Click **BOM**
+   5. Select csv as the file format
+   6. The delimiter for the csv file from Eagle is `;` (which makes no sense because csv stands for: *comma-separated values*)
+   7. Convert the csv's delimiter to `,` with the [eagle_bom_to_csv.py](resources/bom/eagle_bom_to_csv.py) script
       1. In windows, type `py eagle_bom_to_csv.py -h` to view the script's help function
       2. In ubuntu, type `python3 eagle_bom_to_csv.py -h` to view the script's help function
       3. If you have another way you'd prefer to convert your csv's delimiter, feel free to do that
-   7. This BOM should contain all the parts within your schematic
-2. Add your enclosure to the BOM
-3. Add any additional parts to your BOM that your system will contain (batteries, etc)
-4. Add a column for **price**
-5. Add a column for **estimated current**
-6. Fill out the **price** column with values found from:
+   8. This BOM should contain all the parts within your schematic
+1. Add any additional parts to your BOM that your system will contain that were not part of the board (enclosure, battery, etc)
+2. Add a column for **price**
+3. Add a column for **estimated current**
+4. Fill out the **price** column with values found from:
    1. [lab6_parts.csv](resources/bom/lab6_parts.csv)
    2. [digikey](https://digikey.com/)
    3. [mouser](https://mouser.com/)
    4. [octopart](https://octopart.com/)
    5. It doesn't matter whether the prices you choose for the DAC and op-amp are the quantity 1 prices or the quantity 1000 prices
-7. Fill out the **estimated current** column
+5. Fill out the **estimated current** column
    1. You only need to note the current of the TM4C123, DAC, op-amp, LM4041, and LEDs
    2. Find the current drawn by the TM4C123 from the [TM4C123 datasheet]()
    3. Find the current drawn by the DAC from its datasheet
@@ -247,15 +330,16 @@ Read through the [requirements document](requirements_document.docx) to gain an 
    6. Calculate the voltage of the LEDs with this equation: I = (3.3 - V<sub>D</sub>) / R
       1. V<sub>D</sub> = diode voltage
       2. R = impedance of the resistor in series
-8. Calculate the total cost of the system
-9. Calculate the estimated total current draw of the system
-10. Calculate how long the system can operate using the estimated total current
+6. Calculate the total cost of the system
+7. Calculate the estimated total current draw of the system
+8. Calculate how long the system can operate using the estimated total current
 
 ---
 
 ## 4 Checkout
 
-You will execute an ERC and DRC to verify that your project is complete.
+1. You will execute an ERC and DRC to verify that your project is complete
+2. Bring the printed PCB glued to the backs of cardboard to verify that your PCB fits within the enclosure you chose
 
 ---
 
