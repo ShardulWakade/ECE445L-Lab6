@@ -1,0 +1,3 @@
+[submodule "hw"]
+	path = hw
+	url = git@github.com:ECE445L/ECE445L-Hardware-Libraries.git
