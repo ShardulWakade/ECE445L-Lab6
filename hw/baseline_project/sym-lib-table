@@ -6,4 +6,6 @@
   (lib (name "motorola_MCP34119P")(type "KiCad")(uri "${KIPRJMOD}/symbols/motorola_MCP34119P.kicad_sym")(options "")(descr ""))
   (lib (name "ti_TLV5618AIP")(type "KiCad")(uri "${KIPRJMOD}/symbols/ti_TLV5618AIP.kicad_sym")(options "")(descr ""))
   (lib (name "ti_LM4041CILPR")(type "KiCad")(uri "${KIPRJMOD}/symbols/ti_LM4041CILPR.kicad_sym")(options "")(descr ""))
+  (lib (name "AD823ARZ")(type "Legacy")(uri "${KIPRJMOD}/lib/AD823ARZ.lib")(options "")(descr ""))
+  (lib (name "LP2950-33LPE3")(type "Legacy")(uri "${KIPRJMOD}/lib/LP2950-33LPE3.lib")(options "")(descr ""))
 )

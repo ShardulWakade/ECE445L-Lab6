@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD823ARZ
+D AD823ARZ, Dual Operational Amplifier R-R 5 to 28V, 8-Pin SOIC
+K
+F http://www.analog.com/static/imported-files/data_sheets/AD823.pdf
+$ENDCMP
+#
+#End Doc Library
